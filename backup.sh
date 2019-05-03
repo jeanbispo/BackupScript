@@ -1,6 +1,8 @@
-BACKUPTIME=`date +%b-%d-%y`
+#!/bin/bash
 
-servers=( "0.0.0.0") ## Array with the servers to perform the backup
+BACKUPTIME=$(date +%b-%d-%y)
+
+servers=("0.0.0.0") ## Array with the servers to perform the backup
 USER=dbuser
 PASS=dbpassword
 ## I recommend creating a user on all databases with the same login and password only for backup, preferably with permission only for the backup server
@@ -33,3 +35,10 @@ DAY=$(date +"%A")
         tar -rf ${TEMPDEST}.tar ${TEMPDEST}/ ##Create uniq archive for backup
         sudo rm -r ${TEMPDEST}
         done
+
+
+printf "\n\n"
+
+echo "@@@@@@@@@@@@@@@@@@@ Finish Backup @@@@@@@@@@@@@@@" ##for log
+
+printf "\n\n"
